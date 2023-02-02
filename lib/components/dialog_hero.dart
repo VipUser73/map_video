@@ -39,7 +39,9 @@ Future<void> showDialogHero(BuildContext context, Person person) async {
                     width: 130,
                     height: 24,
                     child: ElevatedButton(
-                        onPressed: () => Navigator.pushNamed(context, '/video'),
+                        onPressed: () => Navigator.pushNamed(
+                            context, '/floor1/infohero',
+                            arguments: person),
                         style: ElevatedButton.styleFrom(
                           backgroundColor: blueColor,
                         ),

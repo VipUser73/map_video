@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:map_video/allhero_screen.dart';
 import 'package:map_video/floor_screen.dart';
 import 'package:map_video/home_screen.dart';
+import 'package:map_video/infohero_screen.dart';
 import 'package:map_video/video_screen.dart';
 
 void main() async {
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => const HomeScreen(),
         '/floor1': (context) => const FloorScreen(),
         '/floor1/allhero': (context) => const AllHeroScreen(),
+        '/floor1/infohero': (context) => const InfoHeroScreen(),
         '/video': (context) => const VideoScreen()
       },
       initialRoute: '/',

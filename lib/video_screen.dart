@@ -25,12 +25,17 @@ class _VideoScreenState extends State<VideoScreen> {
     super.dispose();
   }
 
+  bool isMuted = false;
+  bool isPause = false;
   @override
   Widget build(BuildContext context) {
     if (controller != null) {
       return SafeArea(
         child: Stack(children: [
-          VideoPlayer(controller!),
+          AspectRatio(
+            aspectRatio: controller!.value.aspectRatio,
+            child: VideoPlayer(controller!),
+          ),
           Positioned(
             top: 20,
             right: 20,
@@ -50,9 +55,15 @@ class _VideoScreenState extends State<VideoScreen> {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      controller!.pause();
+                      isPause = !isPause;
+                      isPause ? controller!.pause() : controller!.play();
+                      setState(() {});
                     },
-                    child: Image.asset("assets/icons/play.png"),
+                    child: isPause
+                        ? const Icon(Icons.play_arrow,
+                            color: Colors.white, size: 30)
+                        : const Icon(Icons.pause,
+                            color: Colors.white, size: 30),
                   ),
                   GestureDetector(
                     onTap: () {
@@ -69,8 +80,16 @@ class _VideoScreenState extends State<VideoScreen> {
                     child: Image.asset("assets/icons/forward.png"),
                   ),
                   GestureDetector(
-                    onTap: () => controller!.setVolume(0),
-                    child: Image.asset("assets/icons/volume.png"),
+                    onTap: () {
+                      isMuted = !isMuted;
+                      isMuted
+                          ? controller!.setVolume(0)
+                          : controller!.setVolume(1);
+                      setState(() {});
+                    },
+                    child: isMuted
+                        ? Image.asset("assets/icons/mute.png")
+                        : Image.asset("assets/icons/volume.png"),
                   ),
                 ],
               ),

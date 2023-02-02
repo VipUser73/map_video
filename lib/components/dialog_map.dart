@@ -54,8 +54,9 @@ Future<void> showDialogMap(BuildContext context, String floorName) async {
                         width: 76,
                         height: 24,
                         child: ElevatedButton(
-                            onPressed: () =>
-                                Navigator.pushNamed(context, '/video'),
+                            onPressed: () => Navigator.pushNamed(
+                                context, '/floor1/infohero',
+                                arguments: listPerson[index]),
                             style: ElevatedButton.styleFrom(
                               backgroundColor: blueColor,
                             ),
