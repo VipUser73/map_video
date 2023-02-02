@@ -11,7 +11,7 @@ Future<void> showDialogMap(BuildContext context, String floorName) async {
       builder: (BuildContext context) {
         return AlertDialog(
           contentPadding:
-              const EdgeInsets.symmetric(vertical: 18, horizontal: 35),
+              const EdgeInsets.symmetric(vertical: 12, horizontal: 35),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -25,42 +25,49 @@ Future<void> showDialogMap(BuildContext context, String floorName) async {
                 ),
               ),
               SizedBox(
-                  height: size.height * 0.46,
-                  width: size.width * 0.5,
-                  child: ListView.separated(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: listPerson.length,
-                      separatorBuilder: (context, index) =>
-                          const SizedBox(width: 16),
-                      itemBuilder: ((context, index) => Column(
-                            children: [
-                              Image.asset(
-                                listPerson[index].avatar,
-                                height: size.height * 0.255,
-                              ),
-                              Text(
-                                listPerson[index].name,
-                                style: const TextStyle(
-                                    fontSize: 10, fontWeight: FontWeight.bold),
-                                textAlign: TextAlign.center,
-                              ),
-                              Text(
-                                listPerson[index].post,
-                                style: const TextStyle(fontSize: 10),
-                                textAlign: TextAlign.center,
-                              ),
-                              ElevatedButton(
-                                  onPressed: () =>
-                                      Navigator.pushNamed(context, '/video'),
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: blueColor,
-                                  ),
-                                  child: const Text(
-                                    'Выбрать',
-                                    style: TextStyle(fontSize: 10),
-                                  ))
-                            ],
-                          )))),
+                height: size.height * 0.48,
+                width: size.width * 0.5,
+                child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: listPerson.length,
+                  separatorBuilder: (context, index) =>
+                      const SizedBox(width: 16),
+                  itemBuilder: (context, index) => Column(
+                    children: [
+                      Image.asset(
+                        listPerson[index].avatar,
+                        height: size.height * 0.255,
+                      ),
+                      Text(
+                        listPerson[index].name,
+                        style: const TextStyle(
+                            fontSize: 10, fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.center,
+                      ),
+                      Text(
+                        listPerson[index].post,
+                        style: const TextStyle(fontSize: 10),
+                        textAlign: TextAlign.center,
+                      ),
+                      const SizedBox(height: 10),
+                      SizedBox(
+                        width: 76,
+                        height: 24,
+                        child: ElevatedButton(
+                            onPressed: () =>
+                                Navigator.pushNamed(context, '/video'),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: blueColor,
+                            ),
+                            child: const Text(
+                              'Выбрать',
+                              style: TextStyle(fontSize: 10),
+                            )),
+                      )
+                    ],
+                  ),
+                ),
+              ),
             ],
           ),
           actionsAlignment: MainAxisAlignment.center,

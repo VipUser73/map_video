@@ -23,10 +23,20 @@ class Person {
       avatar: "assets/avatars/$index.png",
       name: "Фамилия Длинноеимя\nОтчество",
       post: "Должность",
-      floor: index.isOdd ? 'Первый этаж' : 'Второй этаж',
+      floor:
+          index.isOdd ? FloorName.first.floorName : FloorName.second.floorName,
       label:
           "Lorem ipsum dolor sit amet\nLorem ipsum dolor sit ametLorem ipsum",
       about: firstFloorText,
     ),
   );
+}
+
+enum FloorName {
+  zero('Цокольный этаж'),
+  first('Первый этаж'),
+  second('Второй этаж');
+
+  final String floorName;
+  const FloorName(this.floorName);
 }

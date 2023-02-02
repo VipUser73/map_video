@@ -29,9 +29,9 @@ class HomeScreen extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 20),
-              const SizedBox(
-                  width: 300,
-                  child: Text(
+              SizedBox(
+                  width: size.width * 0.46,
+                  child: const Text(
                     homeDescriptionText,
                     textAlign: TextAlign.center,
                   )),

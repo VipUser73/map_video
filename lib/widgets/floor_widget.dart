@@ -38,10 +38,8 @@ class FloorWidget extends StatelessWidget {
         Container(
           padding: const EdgeInsets.symmetric(vertical: 50),
           width: size.width * 0.3,
-          child: ListView(
-            children: [
-              Text(text2),
-            ],
+          child: SingleChildScrollView(
+            child: Text(text2),
           ),
         ),
       ],
