@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:map_video/components/constants.dart';
-import 'package:map_video/model/person.dart';
+import 'package:map_video/servises/repository.dart';
 import 'package:map_video/widgets/bottom_button.dart';
 import 'package:map_video/widgets/floor_widget.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';

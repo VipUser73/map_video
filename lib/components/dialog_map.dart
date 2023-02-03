@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:map_video/components/constants.dart';
 import 'package:map_video/model/person.dart';
+import 'package:map_video/servises/repository.dart';
 
 Future<void> showDialogMap(BuildContext context, String floorName) async {
   final size = MediaQuery.of(context).size;
-  final List<Person> listPerson =
-      Person.listHero.where((element) => element.floor == floorName).toList();
+  final List<Person> listPerson = Repository.listHero
+      .where((element) => element.floor == floorName)
+      .toList();
   return showDialog(
       context: context,
       builder: (BuildContext context) {

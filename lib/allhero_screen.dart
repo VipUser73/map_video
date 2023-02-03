@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:map_video/model/person.dart';
+import 'package:map_video/servises/repository.dart';
 import 'package:map_video/widgets/list_hero.dart';
 
 class AllHeroScreen extends StatelessWidget {
@@ -9,10 +10,10 @@ class AllHeroScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
 
-    final List<Person> personOnFirst = Person.listHero
+    final List<Person> personOnFirst = Repository.listHero
         .where((element) => element.floor == FloorName.first.floorName)
         .toList();
-    final List<Person> personOnSecond = Person.listHero
+    final List<Person> personOnSecond = Repository.listHero
         .where((element) => element.floor == FloorName.second.floorName)
         .toList();
     return Scaffold(
