@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:map_video/components/constants.dart';
 import 'package:map_video/model/person.dart';
+import 'package:map_video/widgets/description_hero.dart';
 import 'package:video_player/video_player.dart';
 
 class InfoHeroScreen extends StatefulWidget {
@@ -67,7 +67,7 @@ class _InfoHeroScreenState extends State<InfoHeroScreen> {
                         ],
                       ),
                       const SizedBox(height: 16),
-                      DescriptionTextWidget(text: person.about),
+                      DescriptionHeroWidget(text: person.about),
                       const SizedBox(height: 16),
                     ],
                   ),
@@ -92,68 +92,6 @@ class _InfoHeroScreenState extends State<InfoHeroScreen> {
           ],
         ),
       ),
-    );
-  }
-}
-
-class DescriptionTextWidget extends StatefulWidget {
-  final String text;
-
-  const DescriptionTextWidget({super.key, required this.text});
-
-  @override
-  DescriptionTextWidgetState createState() => DescriptionTextWidgetState();
-}
-
-class DescriptionTextWidgetState extends State<DescriptionTextWidget> {
-  String shortText = '';
-  String allText = '';
-
-  bool flag = true;
-
-  @override
-  void initState() {
-    super.initState();
-
-    if (widget.text.length > 50) {
-      shortText = widget.text.substring(0, 50);
-      allText = widget.text.substring(50, widget.text.length);
-    } else {
-      shortText = widget.text;
-      allText = "";
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.only(left: 9),
-      decoration: const BoxDecoration(
-          border: Border(
-        left: BorderSide(
-          color: blueColor,
-          width: 5.0,
-        ),
-      )),
-      child: allText.isEmpty
-          ? Text(shortText)
-          : Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(flag ? ("$shortText...") : (shortText + allText)),
-                InkWell(
-                  child: Text(
-                    flag ? "Читать полностью" : "Свернуть",
-                    style: const TextStyle(color: Colors.blue),
-                  ),
-                  onTap: () {
-                    setState(() {
-                      flag = !flag;
-                    });
-                  },
-                ),
-              ],
-            ),
     );
   }
 }

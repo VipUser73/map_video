@@ -111,7 +111,7 @@ class _VideoScreenState extends State<VideoScreen> {
         ]),
       );
     } else {
-      return Container();
+      return const SizedBox();
     }
   }
 }
